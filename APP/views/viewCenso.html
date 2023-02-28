@@ -1,0 +1,112 @@
+<div class="card">
+    <div class="card-header">
+        <h5>Censo de Clientes</h5>
+    </div>
+</div>
+<div class="row">
+    
+        <div class="table-responsive" id="contenedorCenso">
+            <table class="table table-hover table-striped">
+                <thead  class="bg-trans-gradient text-white"> 
+                    <tr>
+                        <td>Cliente</td>
+                        <td>Telefono</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody id="tblCenso">
+
+
+                </tbody>
+            </table>
+        </div>
+    
+</div>
+
+<!-- Modal Opciones Pedido -->
+<div class="modal fade" id="ModalNuevoCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">Datos del Cliente</label>
+            </div>
+
+            <div class="modal-body">
+                <div class="form">
+                    <div class="form-group">
+                        <label>NIT:</label>
+                        <input id="txtNit" class="form-control" type="text" placeholder="Escriba el NIT ...">
+                    </div>
+                    <div class="form-group">
+                        <label>Negocio/Establecimiento:</label>
+                        <input id="txtNegocio" class="form-control" type="text" placeholder="nombre del negocio">
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre y Apellido:</label>
+                        <input id="txtNomcliente" class="form-control" type="text" placeholder="nombre completo">
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección:</label>
+                        <input id="txtDircliente" class="form-control" type="text" placeholder="Dirección cliente...">
+                    </div>
+                    <div class="form-group">
+                        <label>Municipio:</label>
+                        <select id="cmbMunicipio" class="form-control">
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Departamento:</label>
+                        <select id="cmbDepartamento" class="form-control">
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefonos:</label>
+                        <input id="txtTelefono" class="form-control" type="number" placeholder="Telefono cliente">
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de pago:</label>
+                        <select id="cmbConcre" class="form-control">
+                            <option value="CON">CONTADO</option>
+                            <option value="CRE">CREDITO</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Observaciones:</label>
+                        <input id="txtObs" class="form-control" type="text" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-round btn-icon btn-primary2" id="btnObtenerUbicacion">
+                            <i class="now-ui-icons location_pin"></i>
+                        </button>
+
+                        <label id="txtLatitud">0</label>
+                        <label id="txtLongitud">0</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <button id="btnCancelarCenso" class="btn btn-default btn-lg btn-round" data-dismiss="modal">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                            Cancelar
+                        </button>
+                        <button id="btnGuardarCenso" class="btn btn-primary btn-lg btn-round">
+                            <i class="now-ui-icons ui-1_check"></i> 
+                            Aceptar
+                        </button>
+                    </div>
+
+                </div>
+              
+
+            </div>
+     
+        </div>
+    </div>
+</div>
+
+<!-- botón nuevo -->
+<div id="fixed-btn2">
+    <button class="btn btn-success btn-circle btn-xl" id="btnNuevoCenso">+</button>
+</div>

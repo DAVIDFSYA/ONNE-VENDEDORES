@@ -1,0 +1,65 @@
+        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12">
+            <div class="card card-user border-top-rounded border-bottom-rounded shadow">
+                            
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="avatar border-gray" width="100" height="100" src="./logo.png" alt="...">
+                    </div>
+
+                    <div class="form-group">
+                            
+                            <select class="form-control text-center text-info" id="cmbAplicacion">
+                                <option value="SALES">VENTAS</option>
+                                <option value="DELIVERY">REPARTO</option>
+                                <option value="SUPERVISOR">SUPERVISOR</option>
+                            </select>
+                    </div>
+
+                    <div class="form-group">
+
+                            <label>Token Cliente:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Escriba el Token de su Empresa..." id="txtUser">
+                                <div class="input-group-append">
+                                    <button class="btn btn-info hand" onclick="getDataToken();" id="btnGetToken"><i class="fal fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                            
+                    </div>
+
+                    <div class="" id="container_empresa">
+                        <div class="form-group">
+                            <label>Empresa:</label>
+                            <select class="form-control border-bottom border-left border-secondary border-right-0 border-top-0" id="cmbEmpresas">
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Contraseña:</label>
+                            <input type="password" class="form-control border-bottom border-left border-secondary border-right-0 border-top-0" placeholder="Contraseña..." id="txtPass">
+                        </div>
+
+                    </div>
+
+                    <hr class="solid">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group" align="left" id="">
+                                <button class="btn btn-success btn-xl btn-circle shadow hand" id="" onclick="funciones.shareAppWhatsapp();">
+                                    <i class="fal fa-share"></i>
+                                </button>                       
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group" align="right" id="container_btniniciar">
+                                <button class="btn btn-info btn-xl btn-circle shadow hand" id="btnIniciar" onclick="fcnLogin();">
+                                    <i class="fal fa-chevron-right"></i>
+                                </button>                       
+                            </div>        
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>

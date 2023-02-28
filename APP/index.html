@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+           ONNE VENTAS
+        </title>
+        <meta name="description" content="Blank">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+        <!-- Call App Mode on ios devices -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- Remove Tap Highlight on Windows Phone IE -->
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="google" content="notranslate" />
+
+        <!-- base css -->
+        <link rel="stylesheet" media="screen, print" href="css/vendors.bundle.css">
+        <link rel="stylesheet" media="screen, print" href="css/app.bundle.css">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./favicon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+        <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="stylesheet" media="screen, print" href="css/.../styles.css">
+        <link rel="stylesheet" media="screen, print" href="./css/btn.css">
+
+        <link rel="stylesheet" href="./onlineLibrary/leaflet/leaflet.css">
+
+        
+	<!-- service worker -->
+	<meta name="application-name" content="ONNE VENTAS" />
+	<meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="manifest.json">
+    
+    </head>
+    <body class="mod-bg-2 nav-function-top header-function-fixed nav-function-fixed">
+        <!-- DOC: script to save and load page settings -->
+        <script>
+            /**
+             *	This script should be placed right after the body tag for fast execution 
+             *	Note: the script is written in pure javascript and does not depend on thirdparty library
+             **/
+            'use strict';
+
+            var classHolder = document.getElementsByTagName("BODY")[0],
+                /** 
+                 * Load from localstorage
+                 **/
+                themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
+                {},
+                themeURL = themeSettings.themeURL || '',
+                themeOptions = themeSettings.themeOptions || '';
+            /** 
+             * Load theme options
+             **/
+            if (themeSettings.themeOptions)
+            {
+                classHolder.className = themeSettings.themeOptions;
+                console.log("%c✔ Theme settings loaded", "color: #148f32");
+            }
+            else
+            {
+                console.log("Heads up! Theme settings is empty or does not exist, loading default settings...");
+            }
+            if (themeSettings.themeURL && !document.getElementById('mytheme'))
+            {
+                var cssfile = document.createElement('link');
+                cssfile.id = 'mytheme';
+                cssfile.rel = 'stylesheet';
+                cssfile.href = themeURL;
+                document.getElementsByTagName('head')[0].appendChild(cssfile);
+            }
+            /** 
+             * Save to localstorage 
+             **/
+            var saveSettings = function()
+            {
+                themeSettings.themeOptions = String(classHolder.className).split(/[^\w-]+/).filter(function(item)
+                {
+                    return /^(nav|header|mod|display)-/i.test(item);
+                }).join(' ');
+                if (document.getElementById('mytheme'))
+                {
+                    themeSettings.themeURL = document.getElementById('mytheme').getAttribute("href");
+                };
+                localStorage.setItem('themeSettings', JSON.stringify(themeSettings));
+            }
+            /** 
+             * Reset settings
+             **/
+            var resetSettings = function()
+            {
+                localStorage.setItem("themeSettings", "");
+            }
+
+        </script>
+        <!-- BEGIN Page Wrapper -->
+        <div class="page-wrapper">
+            <div class="page-inner">
+                <!-- BEGIN Left Aside -->
+  
+                <!-- END Left Aside -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN Page Header -->
+                    <header class="page-header" role="banner">
+                        <!-- we need this logo when user switches to nav-function-top -->
+                        <div class="page-logo">
+                            <a href="#" class="page-logo-link press-scale-down d-flex align-items-center">
+                                <span class="page-logo-text mr-1">VENTAS</span>                          
+                            </a>
+                        </div>
+                              
+                        
+                        <div class="ml-auto d-flex">
+                               
+                            <div class="">
+                                <a href="#" class="header-icon" id="btnVentas">
+                                    <i class="fal fa-shield-alt"></i>
+                                </a>
+                            </div>
+
+                            <div class="">
+                                    <a href="#" class="header-icon" id="btnMapas">
+                                        <i class="fal fa-map-marker-alt"></i>
+                                    </a>
+                            </div>
+                            
+                            <div class="">
+                                <a href="#" class="header-icon" id="btnCenso">
+                                    <i class="fal fa-edit"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="">
+                                <a href="#" class="header-icon" id="btnTools">
+                                    <i class="fal fa-bolt"></i>
+                                </a>
+                            </div>     
+
+                            <div class="">
+                                <a href="#" class="header-icon" id="btnReportes">
+                                    <i class="fal fa-chart-pie"></i>
+                                </a>
+                            </div>     
+
+                            <div class="">
+                                <a href="#" class="header-icon" id="btnConfig">
+                                    <i class="fal fa-globe"></i>
+                                </a>
+                            </div>     
+                            
+                            <!-- app settings -->
+                            <div class="hidden-md-down">
+                                <a href="#" class="header-icon" data-toggle="modal" data-target=".js-modal-settings">
+                                    <i class="fal fa-cog"></i>
+                                </a>
+                            </div>
+
+                            <div class="">
+                                <a href="index.html" class="header-icon" id="btnSalir">
+                                    <i class="fal fa-sign-out"></i>
+                                </a>
+                            </div>
+
+                            <!-- app shortcuts -->
+                            <div id="rootShorcuts">
+                               
+                            </div>
+                 
+
+                        </div>
+                    </header>
+                    <!-- END Page Header -->
+                    <!-- BEGIN Page Content -->
+                    <!-- the #js-page-content id is needed for some plugins to initialize -->
+                    <main id="js-page-content" role="main" class="page-content">
+                      <div id="contenedor">
+
+                      </div>
+                    </main>
+                    <!-- this overlay is activated only when mobile menu is triggered -->
+                    <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div> <!-- END Page Content -->
+                    <!-- BEGIN Page Footer -->
+                    <footer class="page-footer" role="contentinfo">
+                        <div class="d-flex align-items-center flex-1 text-muted">
+                            <span class="hidden-md-down fw-700">por <a href="https://api.whatsapp.com/send?phone=50257255092&text=Hola,%20me%20interesa%20este%20sistema%20Community-Sales" target="blank">Alexis Burgos</a></span>
+                        </div>
+                    </footer>
+                    <!-- END Page Footer -->
+                    <!-- BEGIN Shortcuts -->
+                  
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- botón nuevo -->
+        <div id="fixed-btn2">
+            <button class="btn btn-danger btn-circle btn-xl" id="btnInstalarApp">
+                <i class="fal fa-download"></i>
+            </button>
+        </div>
+        <!-- END Page Wrapper -->
+
+        <!-- BEGIN Page Settings -->
+        <div class="modal fade js-modal-settings modal-backdrop-transparent" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-right modal-md">
+                <div class="modal-content">
+                    <div class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center w-100">
+                        <h4 class="m-0 text-center color-white">
+                            Opciones de Interfaz
+                            <small class="mb-0 opacity-80">Opciones del Usuario</small>
+                        </h4>
+                        <button type="button" class="close text-white position-absolute pos-top pos-right p-2 m-1 mr-2" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <div class="settings-panel">
+                            <div class="mt-4 d-table w-100 px-5">
+                                <div class="d-table-cell align-middle">
+                                    <h5 class="p-0">
+                                        App Layout
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="list" id="fh">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="header-function-fixed"></a>
+                                <span class="onoffswitch-title">Fixed Header</span>
+                                <span class="onoffswitch-title-desc">header is in a fixed at all times</span>
+                            </div>
+                            <div class="list" id="nff">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-fixed"></a>
+                                <span class="onoffswitch-title">Fixed Navigation</span>
+                                <span class="onoffswitch-title-desc">left panel is fixed</span>
+                            </div>
+                            <div class="list" id="nfm">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-minify"></a>
+                                <span class="onoffswitch-title">Minify Navigation</span>
+                                <span class="onoffswitch-title-desc">Skew nav to maximize space</span>
+                            </div>
+                            <div class="list" id="nfh">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-hidden"></a>
+                                <span class="onoffswitch-title">Hide Navigation</span>
+                                <span class="onoffswitch-title-desc">roll mouse on edge to reveal</span>
+                            </div>
+                            <div class="list" id="nft">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-top"></a>
+                                <span class="onoffswitch-title">Top Navigation</span>
+                                <span class="onoffswitch-title-desc">Relocate left pane to top</span>
+                            </div>
+                            <div class="list" id="mmb">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-main-boxed"></a>
+                                <span class="onoffswitch-title">Boxed Layout</span>
+                                <span class="onoffswitch-title-desc">Encapsulates to a container</span>
+                            </div>
+                            <div class="expanded">
+                                <ul class="">
+                                    <li>
+                                        <div class="bg-fusion-50" data-action="toggle" data-class="mod-bg-1"></div>
+                                    </li>
+                                    <li>
+                                        <div class="bg-warning-200" data-action="toggle" data-class="mod-bg-2"></div>
+                                    </li>
+                                    <li>
+                                        <div class="bg-primary-200" data-action="toggle" data-class="mod-bg-3"></div>
+                                    </li>
+                                    <li>
+                                        <div class="bg-success-300" data-action="toggle" data-class="mod-bg-4"></div>
+                                    </li>
+                                </ul>
+                                <div class="list" id="mbgf">
+                                    <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-fixed-bg"></a>
+                                    <span class="onoffswitch-title">Fixed Background</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 d-table w-100 px-5">
+                                <div class="d-table-cell align-middle">
+                                    <h5 class="p-0">
+                                        Mobile Menu
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="list" id="nmp">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-mobile-push"></a>
+                                <span class="onoffswitch-title">Push Content</span>
+                                <span class="onoffswitch-title-desc">Content pushed on menu reveal</span>
+                            </div>
+                            <div class="list" id="nmno">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-mobile-no-overlay"></a>
+                                <span class="onoffswitch-title">No Overlay</span>
+                                <span class="onoffswitch-title-desc">Removes mesh on menu reveal</span>
+                            </div>
+                            <div class="list" id="sldo">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-mobile-slide-out"></a>
+                                <span class="onoffswitch-title">Off-Canvas <sup>(beta)</sup></span>
+                                <span class="onoffswitch-title-desc">Content overlaps menu</span>
+                            </div>
+                            <div class="mt-4 d-table w-100 px-5">
+                                <div class="d-table-cell align-middle">
+                                    <h5 class="p-0">
+                                        Accessibility
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="list" id="mbf">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-bigger-font"></a>
+                                <span class="onoffswitch-title">Bigger Content Font</span>
+                                <span class="onoffswitch-title-desc">content fonts are bigger for readability</span>
+                            </div>
+                            <div class="list" id="mhc">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-high-contrast"></a>
+                                <span class="onoffswitch-title">High Contrast Text (WCAG 2 AA)</span>
+                                <span class="onoffswitch-title-desc">4.5:1 text contrast ratio</span>
+                            </div>
+                            <div class="list" id="mcb">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-color-blind"></a>
+                                <span class="onoffswitch-title">Daltonism <sup>(beta)</sup> </span>
+                                <span class="onoffswitch-title-desc">color vision deficiency</span>
+                            </div>
+                            <div class="list" id="mpc">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-pace-custom"></a>
+                                <span class="onoffswitch-title">Preloader Inside</span>
+                                <span class="onoffswitch-title-desc">preloader will be inside content</span>
+                            </div>
+                            <div class="mt-4 d-table w-100 px-5">
+                                <div class="d-table-cell align-middle">
+                                    <h5 class="p-0">
+                                        Global Modifications
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="list" id="mcbg">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-clean-page-bg"></a>
+                                <span class="onoffswitch-title">Clean Page Background</span>
+                                <span class="onoffswitch-title-desc">adds more whitespace</span>
+                            </div>
+                            <div class="list" id="mhni">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-hide-nav-icons"></a>
+                                <span class="onoffswitch-title">Hide Navigation Icons</span>
+                                <span class="onoffswitch-title-desc">invisible navigation icons</span>
+                            </div>
+                            <div class="list" id="dan">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-disable-animation"></a>
+                                <span class="onoffswitch-title">Disable CSS Animation</span>
+                                <span class="onoffswitch-title-desc">Disables CSS based animations</span>
+                            </div>
+                            <div class="list" id="mhic">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-hide-info-card"></a>
+                                <span class="onoffswitch-title">Hide Info Card</span>
+                                <span class="onoffswitch-title-desc">Hides info card from left panel</span>
+                            </div>
+                            <div class="list" id="mlph">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-lean-subheader"></a>
+                                <span class="onoffswitch-title">Lean Subheader</span>
+                                <span class="onoffswitch-title-desc">distinguished page header</span>
+                            </div>
+                            <div class="list" id="mnl">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-nav-link"></a>
+                                <span class="onoffswitch-title">Hierarchical Navigation</span>
+                                <span class="onoffswitch-title-desc">Clear breakdown of nav links</span>
+                            </div>
+                            <div class="list mt-3">
+                                <span class="onoffswitch-title">Global Font Size <small>(RESETS ON REFRESH)</small> </span>
+                                <div class="btn-group btn-group-sm btn-group-toggle my-2" data-toggle="buttons">
+                                    <label class="btn btn-default btn-sm" data-action="toggle-swap" data-class="root-text-sm" data-target="html">
+                                        <input type="radio" name="changeFrontSize"> SM
+                                    </label>
+                                    <label class="btn btn-default btn-sm" data-action="toggle-swap" data-class="root-text" data-target="html">
+                                        <input type="radio" name="changeFrontSize" checked=""> MD
+                                    </label>
+                                    <label class="btn btn-default btn-sm" data-action="toggle-swap" data-class="root-text-lg" data-target="html">
+                                        <input type="radio" name="changeFrontSize"> LG
+                                    </label>
+                                    <label class="btn btn-default btn-sm" data-action="toggle-swap" data-class="root-text-xl" data-target="html">
+                                        <input type="radio" name="changeFrontSize"> XL
+                                    </label>
+                                </div>
+                                <span class="onoffswitch-title-desc d-block mb-g">Change <strong>root</strong> font size to effect rem values</span>
+                            </div>
+                            <hr class="m-0">
+                            <div class="p-3 d-flex align-items-center justify-content-center bg-faded">
+                                <a href="#" class="btn btn-outline-danger fw-500 mr-2" data-action="app-reset">Reset Settings</a>
+                                <a href="#" class="btn btn-danger fw-500" data-action="factory-reset">Factory Reset</a>
+                            </div>
+                        </div>
+                        <span id="saving"></span>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <!-- END Page Settings -->
+      
+        <script src="js/vendors.bundle.js"></script>
+        <script src="js/app.bundle.js"></script>
+        <script src="js/../script.js"></script>
+        
+
+    </body>
+
+    <script src="./controllers/GlobalVars.js"></script>
+
+<script src="./onlineLibrary/axios.min.js"></script>
+<script src="./onlineLibrary/leaflet/leaflet.js"></script><!-- trabaja con el mapa -->
+<script src="./assets/js/sweetalert.min.js"></script> <!--alertas varias-->
+<script src="./assets/js/JsStore.min.js"></script> <!-- para trabajar con IndexDb-->
+<script src="./controllers/funciones.js"></script>
+
+<script src="./controllers/database.js"></script>
+
+<!-- controladores -->
+<script src="./controllers/classDbOp.js"></script>
+<script src="./controllers/inicio.js"></script>
+<script async src="./controllers/dataventas.js"></script>
+<script async src="./controllers/precios.js"></script>
+<script async src="./controllers/clientes.js"></script>
+<script async src="./controllers/ventas.js"></script>
+<script async src="./controllers/classCenso.js"></script>
+<script async src="./controllers/tools.js"></script>
+<script async src="./controllers/classEnvios.js"></script>
+<script async src="./controllers/index.js"></script>
+<script async src="./controllers/config.js"></script>
+<script async src="./controllers/sync.js"></script>
+
+<script src="./onlineLibrary/socket.io.js"></script>
+
+<script>
+    //inicializa el token
+    if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () =>
+           navigator.serviceWorker.register('sw.js')
+            .then(registration => console.log('Service Worker registered'))
+            .catch(err => 'SW registration failed'));
+    };
+
+  //carga la vista de login
+   funciones.loadView('./views/viewLogin.html','contenedor')
+        .then(async ()=>{
+            ControllerMenu('LOGIN');                  
+            container_empresa = document.getElementById('container_empresa');
+            container_empresa.style = "visibility:hidden";
+            container_btniniciar = document.getElementById('container_btniniciar');
+            container_btniniciar.style = "visibility:hidden";
+            //getDataToken();
+    })
+
+   //const socket = io();   
+
+   async function CargarComboEmpresas(){
+        let btnGetToken = document.getElementById('btnGetToken');
+        btnGetToken.innerHTML = '<i class="fal fa-chevron-right fa-spin"></i>';
+
+            try {
+                const response = await fetch(`${GlobalServerUrl}/api/empresas/all?token=${GlobalToken}`)
+                const json = await response.json();
+                let comboboxemp = document.getElementById('cmbEmpresas')
+
+                comboboxemp.innerHTML = ''
+                comboboxemp.innerHTML = json.recordset.map((empresa)=>{
+                return `<option value="${empresa.EMPNIT}">${empresa.EMPNOMBRE}</option>`;        
+               }).join('\n');
+               btnGetToken.innerHTML = '<i class="fal fa-chevron-right"></i>';
+            } catch (error) {
+                console.log(error);
+                funciones.AvisoError('No se pudo cargar la lista de empresas');
+                btnGetToken.innerHTML = '<i class="fal fa-chevron-right"></i>';
+            }
+   }
+    
+</script>
+
+</html>

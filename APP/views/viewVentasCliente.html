@@ -1,0 +1,99 @@
+<div class="card">
+
+    <div class="card-header">
+      <span>Seleccione un cliente</span>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <div class="col-8">
+          <input type="search" class="form-control col-12 bg-amarillo shadow" placeholder="Escriba para buscar un cliente..." id="txtBusquedaCliente">
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-info btn-round shadow" id="btnBuscarCliente">
+              <i class="fal fa-search"></i>Buscar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="table table-responsive">
+          <table class="table table-striped table-hover">
+              <thead class="bg-secondary text-white">
+                <tr>
+                  <td class="">Cliente  /  Dirección</td> 
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody id="tblClientesPedido">
+
+              </tbody>
+          </table>
+
+      </div>      
+    </div>
+    
+</div>
+   
+
+<!-- Modal Tipo Reparto // obs -->
+<div class="modal fade" id="ModalOpcionesObs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <span class="text-right">
+          <!--<label class="text-primary" id="txtPedidoClienteSelected"></label>-->
+        </span>
+      <div class="modal-header bg-info text-white">
+          <label class="modal-title negrita" id="txtNomClienteSelected">Consumidor Final</label>
+      </div>
+
+      <div class="modal-body p-4">
+          <div class="row">
+              <div class="form-group">
+                  <label>Tipo Cobro:</label>
+                  <select class="form-control shadow" id="cmbPedidoTipoEntrega">
+                    <option value="1">Contado</option>
+                    <option value="2">Crédito Vendedor</option>
+                  </select>
+              </div>
+              
+              <hr class="solid">
+
+              <div class="form-group">
+                  <label>Observaciones:</label>
+                  <textarea rows="4" cols="40" class="form-control" id="txtPedidoObs" placeholder="Escriba aqui sus observaciones..."></textarea>
+              </div>
+
+          </div>
+      </div>
+
+      <div class="modal-footer">
+          <div class="row">
+              <div class="col-6">
+                  <button class="btn btn-secondary btn-circle btn-xl shadow" data-dismiss="modal">
+                      <i class="fal fa-chevron-left"></i>
+                  </button>      
+              </div>
+              <div class="col-6">
+                  <button class="btn btn-info btn-xl btn-circle shadow" data-dismiss="modal" id="btnPedidoTerminar">
+                      <i class="fal fa-save"></i>
+                  </button>      
+              </div>
+
+          </div>
+          
+          
+                    
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="btn-bottom-left">
+    <button class="btn btn-secondary btn-xl btn-circle shadow" id="btnAtrasClientePedido" onclick="CrearNuevoPedido();">
+      <i class="fal fa-chevron-left"></i>
+    </button>
+</div>

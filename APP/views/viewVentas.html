@@ -1,0 +1,137 @@
+<div class="card border-top-rounded border-bottom-rounded shadow col-xl-6 col-lg-6 col-md-8 col-sm-12">
+
+    <div class="card-header" id="containerDocumentos">
+        <div class="row">
+            <div class="col-10">
+                <h5 id="lbTituloVentas" class="text-white">Pedidos sin Enviar</h5>
+        
+                <div class="row">
+                    <div class="col-4">
+                        <button class="btn btn-info btn-round btn-sm border-white" data-dismiss="modal" id="btnPedidosPendientes" onclick="dbSelectDocumentos(document.getElementById('tblDocumentos'),1);">
+                            <i class="fal fa-archive"></i> Pendientes
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-danger  btn-round btn-sm border-white" data-dismiss="modal" id="btnPedidosEnviados" onclick="dbSelectDocumentos(document.getElementById('tblDocumentos'),0);">
+                                <i class="fal fa-paper-plane"></i> Enviados
+                        </button>
+                    </div>            
+                </div>
+
+            </div>
+            <div class="col-2">
+                <div class="text-white" style="font-size: 40px;" id="iconoMenu">
+              
+                </div>        
+            </div>
+        </div>
+
+      
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <label>Total Vendido:</label>
+                <h2 id="txtTotalVenta" class="text-danger">Q0.00</h2>
+            </div>
+            <div class="col-6">
+                <label>Pedidos:</label>
+                <h2 id="txtTotalPedidos" class="text-info">0</h2>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+<div class="card table-responsive  border-top-rounded border-bottom-rounded shadow col-xl-6 col-lg-6 col-md-8 col-sm-12" id="tblVentas">
+    <table class="table table-bordered table-striped">
+        <thead class="bg-secondary text-white">
+            <tr>
+                <td class="col-1-sm col-1-md">No.</td>
+                <td class="col-6-sm col-6-md">Cliente</td>
+                <td class="col-3-sm col-3-md">Importe</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody id="tblDocumentos">
+            
+        </tbody>
+
+    </table>
+    
+        
+    
+</div>
+
+<!-- Modal Opciones Pedido -->
+<div class="modal fade" id="ModalOpcionesPedido" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <span class="text-right"><label class="text-primary" id="txtIdPedido">pedido1</label> </span>
+                
+                <div class="modal-header">
+                    <label class="modal-title" id="txtNomClientePedido">Consumidor Final</label>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="row">
+                        <label>Total Venta:</label>
+                        <b><h3 class="text-right text-danger"  id="txtTotalPedido">Q 5000.00</h3></b>
+                    </div>
+
+                    <hr class="solid">
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-secondary btn-rounded btn-lg shadow" data-dismiss="modal" id="btnVentasCancelar">
+                                <span class="fal fa-times mr-1"></span>
+                                    Cancelar    
+                            </button>
+                        </div>
+                        
+                        <div class="col-6">
+                            <button class="btn btn-info btn-rounded btn-lg shadow" id="btnVentasEditar">
+                                <span class="fal fa-edit"></span>    
+                                    Editar    
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <hr class="solid">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-danger btn-rounded btn-lg shadow" id="btnVentasEliminar">
+                                <span class="fal fa-trash"></span>    
+                                    Borrar      
+                            </button>
+                        </div>
+
+                        <div class="col-6">
+                            <button class="btn btn-primary btn-rounded btn-lg shadow" id="btnVentasEnviar">
+                                <span class="fal fa-paper-plane"></span>    
+                                Enviar      
+                            </button>
+                        </div>
+                    </div>
+                
+                
+                </div>
+
+            </div>
+            
+        </div>
+   
+</div>
+
+<!-- botón nuevo -->
+<div id="fixed-btn2">
+    <button class="btn btn-success btn-circle btn-xl" id="btnNuevoPedido" onclick="CrearNuevoPedido();">+</button>
+</div>
+
+<style>
+
+</style>

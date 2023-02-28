@@ -1,0 +1,164 @@
+.border-top-rounded{
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+  
+.border-bottom-rounded{
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+
+.hand {
+    cursor: pointer;
+}
+
+.negrita {
+    font-weight: bold;
+}
+.bg-amarillo{
+    background-color: rgb(255, 255, 217);
+}
+
+@media print{
+    .oculto-impresion, .oculto-impresion *{
+        display:none !important;
+    }
+}
+
+/* IMPRESION DE TICKET */
+@media screen {
+    div.divFooter {
+      display: none;
+    }
+  }
+  @media print {
+    div.divFooter {
+      position: fixed;
+      bottom: 0;
+    }
+}
+
+.foot {
+    bottom: 0;
+}
+
+/* BOTON FLOTANTE ESQUINA DERECHA */
+#fixed-btn2 { 
+position: fixed;
+z-index: 1088;
+right: 21px;
+bottom: 15px;
+}
+
+.btn-bottom-right { 
+    position: fixed;
+    z-index: 1088;
+    right: 21px;
+    bottom: 15px;
+    }
+
+.btn-bottom-left { 
+    position: fixed;
+    z-index: 1088;
+    left: 21px;
+    bottom: 15px;
+    }
+
+.btn-bottom-middle { 
+        position: fixed;
+        z-index: 1088;
+        left: 50%;
+        right: 50%;
+        bottom: 15px;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+/*botón up*/
+.boton-subir{
+    display: none;
+    background: #00974B;
+    border: thin solid #fff;
+    border-radius: 3px;
+    position: fixed;
+    right: 15px;
+    bottom:2px;
+    z-index: 999999999;
+  }
+  /*evento hover*/
+  .boton-subir:hover{
+    box-shadow:   0px 2px 10px 0px rgba(255, 255, 255, 0.75);
+  }
+  /*estilos para el tag i*/
+  .boton-subir i{
+    color: #fff;
+    font-size: 1.5em;
+    padding: 10px 10px 10px 7px;
+    -ms-transform: rotate(-45deg); /* IE 9 */
+    -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+    transform: rotate(-45deg);
+  }
+  
+    /* simple scroll */
+    .simplescrollup__button {
+        position: fixed;
+        bottom: 3rem;
+        right: 3rem;
+        transition: 1s all;
+        z-index: 10000;
+    }
+    .simplescrollup__button--show {
+        transform: translateX(0);
+    }
+    .simplescrollup__button--hide {
+        transform: translateX(100px);
+    }
+/* FIN BOTON FLOTANTE */
+
+/* DIV LATERAL QUE APARECE */
+#example-view-filters {
+    overflow: hidden;
+    position:relative;
+    height:450px;
+}
+#example-trigger-toggle {
+    cursor: pointer;
+}
+#example-element-toggle {
+    display:none;
+}
+#example-toggled-element {
+    position:absolute;
+    left:0px;
+    width:100%;  
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -mos-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+#example-element-toggle:not(:checked) ~ #example-toggled-element {
+    left:-1000px;
+}
+
+/* FIN DIV LATERAL QUE APARECE */
+
+

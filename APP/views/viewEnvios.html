@@ -1,0 +1,138 @@
+<div class="card">
+    <label id="txtNomRepartidor">CargoExpresso</label>
+    <div class="card-header">
+        <h5 id="txtEncabezado">Envios Pendientes</h5>
+        
+        <button class="btn btn-info btn-icon btn-round btn-sm" data-dismiss="modal" id="btnEnviosPendientesOp">
+                <i class="now-ui-icons design_bullet-list-67"></i>
+        </button>Pendientes
+        <button class="btn btn-danger btn-icon btn-round btn-sm" data-dismiss="modal" id="btnEnviosEntregados">
+                <i class="now-ui-icons ui-1_check"></i>
+        </button>Entregados
+    </div>
+    <div class="card-body">
+   
+    </div>
+    
+</div>
+
+<div class="card table-responsive" id="">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td class="col-1-sm col-4-md">Cliente</td>
+                <td class="col-6-sm col-4-md">Dirección</td>
+                <td class="col-3-sm col-3-md">Importe</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody id="tblEnviosPendientes">
+            
+        </tbody>
+
+    </table>
+    
+        
+    
+</div>
+
+<!-- Modal Opciones Envio -->
+<div class="modal fade" id="ModalOpcionesEnvios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              
+            <div class="modal-header">
+              <h5 class="modal-title" id="txtNomCliente">Consumidor Final</h5>
+            </div>
+
+            <div class="modal-body">
+                <span id="txtDirCliente">Ciudad</span>
+                <br>
+                <span id="txtTelCliente">555-555</span>
+              <div class="col-8">
+                <div class="row">
+                    <label>Total Venta:</label>
+                    <b>
+                      <h3 class="text-right"  id="txtImporte">Q 5000.00</h3>
+                    </b>
+                </div>
+    
+              </div>
+
+            </div>
+            <div class="">
+                <div class="card">
+                    <button type="button" class="btn btn-secondary btn-icon btn-round btn-lg" data-dismiss="modal" id="btnVentasCancelar">
+                        <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+                    Cancelar
+                </div>
+
+                <div class="card">
+                    <button class="btn btn-info btn-icon btn-round btn-lg" id="btnVentasEditar">
+                        <i class="now-ui-icons ui-1_lock-circle-open"></i>
+                    </button>
+                    Ver Detalle
+                </div>
+                
+                <div class="card">
+                    <button type="button" class="btn btn-primary btn-icon btn-round btn-lg" id="btnEnviosMarcarEnviado" data-dismiss="modal">
+                        <i class="now-ui-icons ui-1_check"></i> 
+                    </button>
+                  Marcar Como Enviado
+                </div>
+         
+            </div>
+          </div>
+        </div>
+</div>
+
+<div class="modal fade" id="ModalOpcionesEnviosEntregados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              
+            <div class="modal-header">
+              <h5 class="modal-title" id="txtNomCliente">Consumidor Final</h5>
+            </div>
+
+            <div class="modal-body">
+                <span id="txtDirCliente">Ciudad</span>
+                <br>
+                <span id="txtTelCliente">555-555</span>
+              <div class="col-8">
+                <div class="row">
+                    <label>Total Venta:</label>
+                    <b>
+                      <h3 class="text-right"  id="txtImporte">Q 5000.00</h3>
+                    </b>
+                </div>
+    
+              </div>
+
+            </div>
+            <div class="">
+                <div class="card">
+                    <button type="button" class="btn btn-secondary btn-icon btn-round btn-lg" data-dismiss="modal" id="btnVentasCancelar">
+                        <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+                    Cancelar
+                </div>
+
+                <div class="card">
+                    <button class="btn btn-info btn-icon btn-round btn-lg" id="btnVentasEditar">
+                        <i class="now-ui-icons ui-1_lock-circle-open"></i>
+                    </button>
+                    Ver Detalle
+                </div>
+                
+                <div class="card">
+                    <button type="button" class="btn btn-danger btn-icon btn-round btn-lg" id="btnEnviosMarcarNoEnviado" data-dismiss="modal">
+                        <i class="now-ui-icons shopping_tag-content"></i> 
+                    </button>
+                  Marcar No Enviado
+                </div>
+         
+            </div>
+          </div>
+        </div>
+</div>

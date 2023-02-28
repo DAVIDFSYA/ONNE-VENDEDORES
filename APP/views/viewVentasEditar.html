@@ -1,0 +1,78 @@
+<div class="card">
+    <div class="card-header">
+        <span id="txtNomCliente">Consumidor Final</span>
+        <div>
+          <b>
+            <h3 class="text-right text-primary" id="txtTotalVenta">
+              Q 0.00
+            </h3>
+          </b>
+        </div>
+    </div>
+    <div class="card-body">
+      <small>*OJO: Todos los cambios que realice se guardarán automáticamente</small>
+    </div>
+</div>
+
+<div class="card">
+  <!-- Contenedor de la lista de productos -->
+  <div class="table table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <td class="col-7">Producto</td>
+          <td class="col-1">Cant</td>
+          <td class="col-2">Subtotal</td>
+          <td class="col-1"></td>
+        </tr>
+      </thead>
+      <tbody id="tblProductosAgregados">
+        
+      </tbody>
+    </table>  
+  </div>
+  
+</div>
+
+<!-- Modal cantidad producto -->
+<div class="modal fade" id="ModalCantidadVenta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <label class="modal-title" id="txtDesProducto">Azucar don Justo Cabal Kilo</label>
+
+        </div>
+        <div class="modal-body">
+          <div class="col-8">
+            <div class="row">
+              <b id="txtCodMedida">UNIDAD</b>
+            </div>
+            
+            <div class="form-group">
+                <label>Cantidad : </label>
+               <input type="number" class="form-control" id="txtCantidad" value="1">
+            </div>
+            <div class="col-12">
+                <label>Precio: </label>
+                <label class="text-primary" id="txtPrecioProducto">Q500</label>
+                <label>Subtotal:</label>
+                <label class="text-primary" id="txtSubTotal">Q500</label>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-round" data-dismiss="modal" id="btnCancelarModalProducto">
+            <i class="now-ui-icons ui-1_simple-remove"></i>
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary btn-round" data-dismiss="modal" id="btnAgregarProducto">
+            <i class="now-ui-icons ui-1_simple-add"></i>
+            Agregar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
